@@ -1,0 +1,228 @@
+body{
+    font-size: 0.14em;
+    font-family: "Microsoft YaHei";
+    color: #535353;
+    box-sizing: border-box;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color:#374782;
+}
+input{
+    outline: none;
+}
+body{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url("../images/bj.png") no-repeat;
+    opacity:0.98;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    top: 0;
+    left: 0;
+    /*opacity: 0.35;*/
+}
+
+section.main.fixed > article {
+    background: #e0ebf4;
+}
+.login_bg{
+    /*width: 100%;*/
+    /*min-height: 100%;*/
+    /*text-align: center;*/
+    /*background: #e0ebf4;*/
+    /* opacity: 0.9; */
+    /*position: absolute;*/
+    /* top: 0; */
+    /* left: 0; */
+    /*height: 100%;*/
+}
+#logo{
+    margin: 9% 10% 15% 60%;
+    width: 30.25%;
+}
+img{
+    width: 100%;
+}
+
+.logol{
+    color: #000000;
+    margin: 10% 0 0 10%;
+    float: left;
+}
+
+.progress_index_form{
+    width: 80%;
+    margin: 0 auto;
+    text-align: left;
+}
+.progress_index_form div.ti h3{
+    text-align: center;
+}
+.progress_index_form div.userName{
+    border: 1px solid #c1c1c1;
+    padding:3.5% 0 4% 3%;
+    height: 22%;
+    background: #ffffff;
+    border-top-left-radius: 0.45em;
+    border-top-right-radius: 0.45em;
+    border-bottom-left-radius: 0.45em;
+    border-bottom-right-radius: 0.45em;
+    margin:10% 0 8% 0;
+}
+.progress_index_form div.userName input{
+    width: 68%;
+    height: 80%;
+    border:none;
+    background: transparent;
+    font-size: 1em;
+    font-family: "Microsoft YaHei";
+    color: #b3b3b3;
+    letter-spacing: 1px;
+    padding-left: 2px;
+}
+.login_btn{
+    width: 100%;
+    display: block;
+    padding:3% 0 ;
+    background: #ffffff;
+    border: 0;
+    font-size: 1em;
+    font-family: "Microsoft YaHei";
+    color:#374782;
+    -webkit-box-shadow: #8f9bad 0px 0px 20px;
+    -moz-box-shadow: #8f9bad 0px 0px 20px;
+    box-shadow: #8f9bad 0px 0px 20px;
+    text-align: center;
+}
+.other_login{
+    width: 90%;
+    height: 15px;
+    margin: 5%;
+}
+.other_login .other,.other_login span{
+    display: inline-block;
+    vertical-align: middle;
+}
+.other_login .other{
+    width: 28%;
+    height: 8px;
+    border-bottom:1px solid #2f2c59;
+}
+.other_login span{
+    width:40%;
+    text-align: center;
+}
+.other_choose{
+    width: 90%;
+    margin: 5%;
+}
+.other_choose p{
+    text-align: left;
+    padding: 1% 0 1% 0;
+}
+
+.other_choose .pic {
+    width:16px;
+    height:16px;
+    display:inline-block;
+    background:url(../images/small.png) -40px -20px no-repeat;
+}
+
+.list_table {
+    border-bottom: solid .01rem #b5b3ae;
+    margin-bottom: 8px;
+}
+
+/*进度跟踪*/
+.order_track {
+    background-color: #fff;
+    margin-bottom: 0.5em;
+    padding: 0.5em;
+}
+
+.order_track p {
+    font-size: 1.0em;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.order_track p span {
+    color: #333;
+}
+
+.order_logistics{
+    padding-left: 1.0em;
+    /*background-color: #fff;*/
+}
+
+.order-flow {
+    padding-left: 0em;
+    padding-bottom: 1.0em;
+    position: relative;
+}
+.order-flow:before{
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    border-left: 1px solid rgb(182, 182, 182);/* 直接改变border的位置即可 */
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scale(0.5, 0.5);
+    transform: scale(0.5, 0.5);
+    box-sizing: border-box;
+}
+
+.of-storey li {
+    position: relative;
+    padding: 10px;
+    /* border-bottom: 1px solid #e8e5e5; */
+}
+.of-storey li:after{
+    content: " ";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    border-bottom: 1px solid rgb(182, 182, 182);
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+}
+
+.of-storey li span {
+    display: block;
+    font-size: 1.0em;
+    color: #666;
+}
+
+.of-storey li span.time {
+    font-size: 0.9em;
+    color: #999;
+}
+
+.of-storey li .icon {
+    position: absolute;
+    top: 45%;
+    left: -0.2em;
+    width: 9px;
+    height: 9px;
+    border-radius: 5px;
+    background-color: #ccc;
+}
+
+.of-storey li .icon.on {
+    background-color: #0099ff;
+}
+.of-storey li .icon.ing {
+    background-color: #09c379;
+}

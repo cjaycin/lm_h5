@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources default="com.frame">
+    <datasource id="com.frame" dbType="1" description="标准数据库">
+        <property name="driver-name">com.mysql.jdbc.Driver</property>
+        <property name="url">jdbc:mysql://localhost:3306/fabulousdb</property>
+        <property name="user">root</property>
+        <property name="password">123321</property>
+        <property name="testConnectionOnCheckin">true</property>
+        <property name="testConnectionOnCheckout">true</property>
+        <property name="automaticTestTable">t_sys_c3p0_test_table</property>
+        <property name="idleConnectionTestPeriod">18000</property>
+        <property name="maxIdleTime">25000</property>
+        <property name="initialPoolSize">5</property>
+        <property name="minPoolSize">5</property>
+        <property name="maxPoolSize">50</property>
+    </datasource>
+
+</datasources>

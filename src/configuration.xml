@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+
+    <category name="system" description="系统相关配置">
+        <item name="isOracleSequence" value="1" description="是否使用oracle的sequence(0或空不使用 1使用)"/>
+    </category>
+
+    <category name="trade" description="页面显示通用设置">
+        <item name="pageRow" value="10" description="分页每页记录数" />
+    </category>
+
+    <category name="functions">
+        <item name="noLimitFunctions" value="100" description="不需要校验session的功能号"/>
+    </category>
+
+    <category name="remote">
+        <item name="wsdl_url" value="http://7.7.7.11:8032/web/services/IM4CRMService" description="webservice地址"></item>
+    </category>
+
+</system>
+

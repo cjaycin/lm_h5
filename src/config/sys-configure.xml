@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+    
+    <category name="functions" description="功能号相关配置">
+        <item name="noLimitFunctions" value="100" description="无需登录校验的功能号"/>
+        <item name="getMethodFunctions" value="" description="get方法请求的功能号"/>
+        <item name="jsonFunctions" value="" description="post方法请求功能号（json入参，类似form提交）"/>
+        <!--<item name="tradeFunctions" value="200001,200002,200003,200004,200005,200007,200008,200009" description="交易相关功能"/>-->
+    </category>
+
+    <category name="timeouts" description="时间相关配置（单位为分钟）">
+        <item name="imgValidateCodeTimeOut" value="30" description="图片验证码超时时间"/>
+        <item name="tokenTimeOut" value="30" description="手机1账户token超时时间"/>
+        <item name="funcwarnTime" value="1" description="单个功能号执行警告时间"/>
+    </category>
+    
+    <category name="remote">
+        <item name="wsdl_url" value="http://7.7.7.11:8032/web/services/IM4CRMService" description="webservice地址"></item>
+    </category>
+
+</system>

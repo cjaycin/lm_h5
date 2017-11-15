@@ -1,0 +1,23 @@
+.date_selector, .date_selector *{width: auto;height: auto;border: none;background: none;margin: 0;padding: 0;text-align: left;text-decoration: none;}
+.date_selector{background:#F1F1F1;border: 1px solid #ccc;padding: 10px;margin:0;margin-top:-1px;position: absolute;z-index:100000;display:none;border-radius: 3px;box-shadow: 0 0 5px #aaa;box-shadow:0 2px 2px #ccc; width:220px;}
+.selector_show{position: fixed; left: 0px; bottom: 0px; width: 100%;}
+.date_selector_ieframe{position: absolute;z-index: 99999;display: none;}
+.date_selector .nav{width: 94%;}
+.date_selector .nav p{clear: none;}
+.date_selector .month_nav, .date_selector .year_nav{margin: 0 0 3px 0;padding: 0;display: block;position: relative;text-align: center;}
+.date_selector .month_nav{float: left;width: 45%;}
+.date_selector .year_nav{float: right;width: 45%;}
+.date_selector .month_name, .date_selector .year_name{/*font-weight: bold;*/line-height: 20px;}
+.date_selector .button{display: block;position: absolute;top: 0;width:28px;height:28px;line-height:28px;font-weight:bold;color:#FA5C60;text-align: center;font-size:24px;overflow:hidden;border: 1px solid #ccc;border-radius:2px;}
+.date_selector .button:hover, .date_selector .button.hover{background:#FA5C60;color: #fff;cursor: pointer;border-color:#F22;}
+.date_selector .prev{left: 0;}
+.date_selector .next{right: 0;}
+.date_selector table{border-spacing: 0;border-collapse: collapse;clear: both;margin: 0; width:93%;}
+.date_selector th, .date_selector td{width: 3em;height: 3em;padding: 0 !important;text-align: center !important;color: #666;font-weight: normal;}
+.date_selector th{font-size: 12px;}
+.date_selector td{border:1px solid #f1f1f1;line-height: 2em;text-align: center;white-space: nowrap;color:#394659; background: #D6DBE0;}
+.date_selector td.today{background: #ECD1D1;}
+.date_selector td.unselected_month{color: #BFB9B9;}
+.date_selector td.selectable_day{cursor: pointer;}
+.date_selector td.selected{background:#FA5C60;color: #fff;font-weight: bold;}
+.date_selector td.selectable_day:hover, .date_selector td.selectable_day.hover{background:#FA5C60;color: #fff;}

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <!-- warn log file-->
+    <appender name="WARN" class="com.frame.comm.log4j.TimeSizeRollingFileAppender">
+        <param name="File" value="d:/logs/mncg_H5_warn.log"/>
+        <param name="MaxBackupIndex" value="300"/>
+        <param name="Encoding" value="UTF-8"/>
+        <param name="MaxFileSize" value="20MB"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601}[%t][%c] - [%m]%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="warn"/>
+            <param name="LevelMax" value="warn"/>
+            <param name="acceptOnMatch" value="true"/>
+        </filter>
+    </appender>
+
+    <!--info log file-->
+    <appender name="INFO" class="com.frame.comm.log4j.TimeSizeRollingFileAppender">
+        <param name="File" value="d:/logs/mncg_H5_info.log"/>
+        <param name="MaxBackupIndex" value="300"/>
+        <param name="Encoding" value="UTF-8"/>
+        <param name="MaxFileSize" value="20MB"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601}[%t][%c] - [%m]%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="info"/>
+            <param name="LevelMax" value="info"/>
+            <param name="acceptOnMatch" value="true"/>
+        </filter>
+    </appender>
+
+    <!--error log file-->
+    <appender name="ERROR" class="com.frame.comm.log4j.TimeSizeRollingFileAppender">
+        <param name="File" value="d:/logs/mncg_H5_error.log"/>
+        <param name="MaxBackupIndex" value="300"/>
+        <param name="Encoding" value="UTF-8"/>
+        <param name="MaxFileSize" value="20MB"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601}[%t][%c] - [%m]%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="error"/>
+            <param name="LevelMax" value="error"/>
+            <param name="acceptOnMatch" value="true"/>
+        </filter>
+    </appender>
+
+    <!-- 日志级别 -->
+    <root>
+        <level value="info"/>
+        <appender-ref ref="INFO"/>
+        <appender-ref ref="WARN"/>
+        <appender-ref ref="ERROR"/>
+    </root>
+
+</log4j:configuration>
