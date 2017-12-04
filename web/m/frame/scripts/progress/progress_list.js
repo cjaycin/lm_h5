@@ -9,7 +9,7 @@ define(function (require, exports, module) {
         progressService = require("progressService"),
         pageCode = "progress/progress_list",
         _pageId = "#progress_progress_list ";
-
+    var url = 'http://130.10.8.134:7017/web/workerposition/';
     /**
      * 初始化
      */
@@ -25,74 +25,65 @@ define(function (require, exports, module) {
             "acceptNo": acceptNo
         };
         progressService.listProgress(param, function (resultVo) {
-            if (resultVo.errorNo == "0") {
-                var result = resultVo.result;
-                var html = "";
-                var user_name = "";
-                for (var i = 0; i < result.length; i++) {
-                    var data = result[i];
-                    var state = "";
-                    switch (data.progressState) {
-                        case "1":
-                            state = "on";
-                            break;
-                        case "2":
-                            state = "ing";
-                            break;
-                        default :
-                            state = "";
-                            break;
-                    }
-
-                    var time = data.state_start_time;
-                    var date = validatorUtil.isEmpty(time) ? "" : "【" + time.substr(0, 4) + "-" + time.substr(4, 2) + "-" + time.substr(6, 2) + " " + time.substr(8, 2) + ":" + time.substr(10, 2) + "】";
-
-                    var staff = "";
-                    var sName = data.staff_name;
-                    if (validatorUtil.isNotEmpty(sName)) {
-                        if (sName.indexOf("_MOS") > -1) {
-                            sName= sName.substr(0, sName.indexOf("_MOS"));
-                        }
-                        staff += sName;
-                    }
-
-                    var sMode = data.staff_mode;
-                    if (validatorUtil.isNotEmpty(sMode)) {
-                        if (sMode.indexOf("86") > -1) {
-                            sMode = "【" + sMode.substring(sMode.indexOf("86") + 2, sMode.length) + "】";
-                        }
-                        staff += "【" + sMode + "】";
-                    }
-
-                    var progress = "";
-                    var ssTime = data.staff_start_time;
-                    if (validatorUtil.isNotEmpty(ssTime)) {
-                        ssTime = "【" + ssTime.substr(0, 4) + "-" + ssTime.substr(4, 2) + "-" + ssTime.substr(6, 2) + " " + ssTime.substr(8, 2) + ":" + ssTime.substr(10, 2) + "】";
-                        progress += ssTime;
-                    }
-
-                    var content = "";
-                    if (data.progressState != "2") {
-                        progress += data.progressDesc;
-                        content = '<span class="time">' + staff + '</span>' +
-                        '<span class="time">' + progress + '</span>';
-                    } else {
-                        //已为您安排张洞师傅上门施工，联系电话12345678999，会在（预约时间）之前与您联系。
-                        content = '<span class="time">已为您安排 ' + sName + '师傅上门施工，联系电话' + sMode + '，会在' + ssTime + '之前与您联系。</span>';
-                    }
-
-                    html += '<ul class="of-storey">' +
-                    '<li>' +
-                    '<span class="icon ' + state + '"></span>' +
-                    '<span>' + date + data.progressStageName + '</span>' +
-                    content +
-                    '</li>' +
-                    '</ul>';
+            var result = resultVo.result;
+            var html = "";
+            var user_name = "";
+            for (var i = result.length-1; i >= 0; i--) {
+                var data = result[i];
+                var li_class = "", icon_class="";
+                switch (data.progressState) {
+                    case "1":
+                        break;
+                    case "2":
+                        li_class = "ing";
+                        icon_class = "on";
+                        break;
+                    default :
+                        state = "";
+                        break;
                 }
-                $(_pageId + '#progress_list').html(html);
+
+                var date_time = data.state_start_time;
+                var date = validatorUtil.isEmpty(date_time) ? "" : date_time.substr(4, 2) + "-" + date_time.substr(6, 2);
+                var time = validatorUtil.isEmpty(date_time) ? "" : date_time.substr(8, 2) + ":" + date_time.substr(10, 2);
+                var ssTime = date + " " + time;
+
+                var staff = "";
+                var sName = data.staff_name;
+                if (validatorUtil.isNotEmpty(sName)) {
+                    if (sName.indexOf("_MOS") > -1) {
+                        sName= sName.substr(0, sName.indexOf("_MOS"));
+                    }
+                    staff += sName;
+                }
+
+                var sMode = data.staff_mode;
+                if (validatorUtil.isNotEmpty(sMode)) {
+                    if (sMode.indexOf("86") > -1) {
+                        sMode = "【" + sMode.substring(sMode.indexOf("86") + 2, sMode.length) + "】";
+                    }
+                    staff += "【" + sMode + "】";
+                }
+
+                var content = "";
+                if (data.progressState != "2") {
+                    content = data.progressStageName + "【" + data.progressDesc + "】";
+                } else {
+                    //已为您安排张洞师傅上门施工，联系电话12345678999，会在（预约时间）之前与您联系。
+                    content = '<span>已为您安排 ' + sName + ' 师傅上门施工，联系电话' + sMode + '，会在' + ssTime + '之前与您联系。<a href="'+(url+acceptNo)+'">查看工人位置</a></span>';
+                }
+
+                html += '<ul class="of-storey">' +
+                    '<li class="'+li_class+'">' +
+                    '<span class="time">'+time+'<br><span style="font-size: 0.7em">'+date+'</span></span>' +
+                    '<span class="icon '+icon_class+'"></span>' +
+                    '<span>'+content+'</span>' +
+                    '</li></ul>';
             }
+            $(_pageId + '#progress_list').html(html);
         });
     }
+
 
     /**
      * 事件绑定
