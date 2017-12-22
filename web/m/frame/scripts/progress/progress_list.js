@@ -60,17 +60,34 @@ define(function (require, exports, module) {
                 var sMode = data.staff_mode;
                 if (validatorUtil.isNotEmpty(sMode)) {
                     if (sMode.indexOf("86") > -1) {
-                        sMode = "【" + sMode.substring(sMode.indexOf("86") + 2, sMode.length) + "】";
+                        sMode = sMode.substring(sMode.indexOf("86") + 2, sMode.length);
                     }
-                    staff += "【" + sMode + "】";
+                    staff += sMode;
                 }
 
                 var content = "";
-                if (data.progressState != "2") {
-                    content = data.progressStageName + "【" + data.progressDesc + "】";
+                if(data.progressNo == "1"){
+                    content = "您的订单已受理，我们正在联系您区域内的施工人员，请耐心等待";
                 } else {
-                    //已为您安排张洞师傅上门施工，联系电话12345678999，会在（预约时间）之前与您联系。
-                    content = '<span>已为您安排 ' + sName + ' 师傅上门施工，联系电话' + sMode + '，会在' + ssTime + '之前与您联系。<a href="'+(url+acceptNo)+'">查看工人位置</a></span>';
+                    if (data.progressState != "2") {
+                        content = data.progressStageName + "【" + data.progressDesc + "】";
+                    } else {
+                        //已为您安排张洞师傅上门施工，联系电话12345678999，会在（预约时间）之前与您联系。
+                        if(validatorUtil.isEmpty(sName)){
+                            content = '<span>已为您安排师傅上门施工</span>';
+                        } else {
+                            content = '<span>已为您安排 '+ sName +' 师傅上门施工</span>';
+                        }
+
+                        if(validatorUtil.isNotEmpty(sMode)){
+                            var tel = '<a href="tel:'+sMode+'"></a>';
+                            content += '，联系电话【'+tel+'】';
+                        }
+
+                        if(validatorUtil.isNotEmpty(ssTime)){
+                            content += '，会在【' + ssTime + '】之前与您联系';
+                        }
+                    }
                 }
 
                 html += '<ul class="of-storey">' +
