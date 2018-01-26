@@ -69,19 +69,13 @@ define(function (require, exports, module) {
                 if(data.progressNo == "1"){
                     content = "您的订单已受理，我们正在联系您区域内的施工人员，请耐心等待";
                 } else {
-                    if (data.progressState != "2") {
-                        content = data.progressStageName + "【" + data.progressDesc + "】";
+                    //已为您安排张洞师傅上门施工，联系电话12345678999，会在（预约时间）之前与您联系。
+                    if(validatorUtil.isEmpty(sName)){
+                        content = data.progressStageName + '【' + data.progressDesc + '】';
                     } else {
-                        //已为您安排张洞师傅上门施工，联系电话12345678999，会在（预约时间）之前与您联系。
-                        if(validatorUtil.isEmpty(sName)){
-                            content = '<span>已为您安排师傅上门施工</span>';
-                        } else {
-                            content = '<span>已为您安排 '+ sName +' 师傅上门施工</span>';
-                        }
-
+                        content = '已为您安排 '+ sName +' 师傅上门施工';
                         if(validatorUtil.isNotEmpty(sMode)){
-                            var tel = '<a href="tel:'+sMode+'"></a>';
-                            content += '，联系电话【'+tel+'】';
+                            content += '，联系电话【'+sMode+'】';
                         }
 
                         if(validatorUtil.isNotEmpty(ssTime)){
@@ -91,11 +85,11 @@ define(function (require, exports, module) {
                 }
 
                 html += '<ul class="of-storey">' +
-                    '<li class="'+li_class+'">' +
-                    '<span class="time">'+time+'<br><span style="font-size: 0.7em">'+date+'</span></span>' +
-                    '<span class="icon '+icon_class+'"></span>' +
-                    '<span>'+content+'</span>' +
-                    '</li></ul>';
+                '<li class="'+li_class+'">' +
+                '<span class="time">'+time+'<br><span style="font-size: 0.7em">'+date+'</span></span>' +
+                '<span class="icon '+icon_class+'"></span>' +
+                '<span>'+content+'</span>' +
+                '</li></ul>';
             }
             $(_pageId + '#progress_list').html(html);
         });
