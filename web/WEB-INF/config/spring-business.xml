@@ -12,4 +12,6 @@
     </bean>
     <bean id="func1001" class="com.frame.business.implProgress.Func1001">
     </bean>
+    <bean id="func1002" class="com.frame.business.implProgress.Func1002">
+    </bean>
 </beans>
