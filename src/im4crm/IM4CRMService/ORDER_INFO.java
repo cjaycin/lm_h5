@@ -14,6 +14,7 @@ import java.util.List;
         "userName",
         "eparchyCode",
         "productTypeCode",
+        "staffSet",
         "progressInfo"
 })
 
@@ -29,6 +30,9 @@ public class ORDER_INFO {
 
     @XmlElement(name = "PRODUCT_TYPE_CODE")
     protected String productTypeCode;
+
+    @XmlElement(name = "STAFF_SET")
+    protected String staffSet;
 
     @XmlElement(name = "PROGRESS_INFO")
     protected List<PROGRESS_INFO> progressInfo;
@@ -63,6 +67,14 @@ public class ORDER_INFO {
 
     public void setProductTypeCode(String productTypeCode) {
         this.productTypeCode = productTypeCode;
+    }
+
+    public String getStaffSet() {
+        return staffSet;
+    }
+
+    public void setStaffSet(String staffSet) {
+        this.staffSet = staffSet;
     }
 
     public List<PROGRESS_INFO> getProgressInfo() {
