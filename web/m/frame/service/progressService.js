@@ -30,6 +30,7 @@ define(function(require, exports, module) {
 		"login": login,
 		"listAll": listAll,
 		"listProgress": listProgress,	//获取进度列表
+		"loadLocation": loadLocation,	//获取进度列表
 		"getInstance" : getInstance,
 		"destroy" : destroy
 	};
@@ -68,6 +69,15 @@ define(function(require, exports, module) {
 	function listProgress(paramMap, callback, ctrlParam){
 		var paraMap = {};
 		paraMap["func"] = "1001";
+		paraMap["acceptNo"] = paramMap.acceptNo;
+		var reqParamVo = new service.ReqParamVo();
+		reqParamVo.setUrl(global.serverPath);
+		commonInvoke(paraMap, callback, ctrlParam, reqParamVo);
+	}
+
+	function loadLocation(paramMap, callback, ctrlParam){
+		var paraMap = {};
+		paraMap["func"] = "1002";
 		paraMap["acceptNo"] = paramMap.acceptNo;
 		var reqParamVo = new service.ReqParamVo();
 		reqParamVo.setUrl(global.serverPath);

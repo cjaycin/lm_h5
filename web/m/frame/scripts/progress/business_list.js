@@ -15,6 +15,7 @@ define(function (require, exports, module) {
      */
     function init() {
         var mobile = appUtils.getPageParam("mobile");
+        var staffSet = appUtils.getPageParam("staffSet");
         $(_pageId + '#user_name').html(appUtils.getPageParam("userName"));
         if (validatorUtil.isEmpty(mobile)) {
             layerUtils.iAlert("非法请求", -1);
@@ -30,7 +31,7 @@ define(function (require, exports, module) {
                 var user_name = "";
                 for (var i = 0; i < order_list.length; i++) {
                     var order = order_list[i];
-                    html += '<div class="list_table" acceptNo="' + order.acceptNo + '" productTypeCode="' + order.productTypeCode + '">' +
+                    html += '<div class="list_table" acceptNo="' + order.acceptNo + '" productTypeCode="' + order.productTypeCode + '" staffSet="'+staffSet+'">' +
                     '<table>' +
                     '<tr>' +
                     '<td>' + (i + 1) + '.' + order.productTypeCode + '</td>' +
@@ -56,7 +57,8 @@ define(function (require, exports, module) {
         appUtils.preBindEvent($(_pageId + "#business_list"), ".list_table", function () {
             appUtils.pageInit(pageCode, "progress/progress_list", {
                 "acceptNo": $(this).attr("acceptNo"),
-                "productTypeCode": $(this).attr("productTypeCode")
+                "productTypeCode": $(this).attr("productTypeCode"),
+                "staffSet": $(this).attr("staffSet")
             });
         });
         appUtils.bindEvent($(_pageId + ".back_btn"), function () {

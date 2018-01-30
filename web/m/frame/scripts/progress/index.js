@@ -42,12 +42,14 @@ define(function (require, exports, module) {
                         appUtils.pageInit(pageCode, "progress/progress_list", {
                             "acceptNo": order_list[0].acceptNo,
                             "productTypeCode": order_list[0].productTypeCode,
-                            "userName": order_list[0].userName
+                            "userName": order_list[0].userName,
+                            "staffSet": order_list[0].staffSet
                         });
                     } else {
                         appUtils.pageInit(pageCode, "progress/business_list", {
                             "mobile": mobile,
-                            "userName": order_list[0].userName
+                            "userName": order_list[0].userName,
+                            "staffSet": order_list[0].staffSet
                         });
                     }
                 } else {
