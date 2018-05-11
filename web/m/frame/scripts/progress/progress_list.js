@@ -90,7 +90,7 @@ define(function (require, exports, module) {
                         }
                     }
                     if(data.progressState == "2" && staffSet == "Y"){
-                        content += '查看<a href="javascript:void(0)" class="location" acceptNo="'+acceptNo+'">实时位置</a>'
+                        content += '，查看 <a href="javascript:void(0)" style="text-decoration: underline;" class="location" acceptNo="'+acceptNo+'">实时位置</a>'
                     }
                 }
 
